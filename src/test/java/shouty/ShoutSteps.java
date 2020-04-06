@@ -23,14 +23,21 @@ public class ShoutSteps {
         shouty.setLocation(name, new Coordinate(xCoord, yCoord));
     }
 
-    @Given("people are located at")
-    public void peopleAreLocatedAt(DataTable personLocations) {
+    @DataTableType
+    public PersonLocation definePersonLocation(Map<String, String> entry) {
+        return new PersonLocation(
+                entry.get("name"),
+                Integer.parseInt(entry.get("x")),
+                Integer.parseInt(entry.get("y"))
+        );
+    }
 
-        for (Map<String, String> personLocation: personLocations.asMaps()){
-            shouty.setLocation(personLocation.get("name"),
-                    new Coordinate(
-                            Integer.parseInt(personLocation.get("x")),
-                            Integer.parseInt(personLocation.get("y"))));
+    @Given("people are located at")
+    public void peopleAreLocatedAt(List<PersonLocation> personLocations) {
+
+        for (PersonLocation personLocation: personLocations){
+            shouty.setLocation(personLocation.name,
+                    new Coordinate(personLocation.x, personLocation.y));
         }
     }
 
