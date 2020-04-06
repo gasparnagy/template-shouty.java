@@ -9,6 +9,8 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
 import java.util.List;
 import java.util.Map;
 
@@ -19,7 +21,8 @@ import static org.junit.Assert.assertEquals;
 
 public class ShoutSteps {
     private static final String ARBITRARY_MESSAGE = "Hello, world";
-    private final Shouty shouty = new Shouty();
+    @Autowired
+    private Shouty shouty;
 
     @When("{word} shouts")
     public void user_shouts(String name) {

@@ -2,12 +2,14 @@ package shouty;
 
 import io.cucumber.java.en.Given;
 import io.cucumber.java.DataTableType;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
 import java.util.Map;
 
 public class LocationSteps {
-    private final Shouty shouty = new Shouty();
+    @Autowired
+    private Shouty shouty;
 
     @DataTableType
     public PersonLocation definePersonLocation(Map<String, String> entry) {
