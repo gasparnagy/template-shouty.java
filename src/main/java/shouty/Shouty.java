@@ -31,6 +31,7 @@ public class Shouty {
 
         for (Map.Entry<String, List<String> > entry : shouts.entrySet()) {
             String shouter = entry.getKey();
+            if(shouter.equals(listener)) continue;
             List<String> personsShouts = entry.getValue();
             int distance = locations.get(listener).distanceFrom(locations.get(shouter));
             if (distance < MESSAGE_RANGE)
