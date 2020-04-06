@@ -5,6 +5,11 @@ import io.cucumber.java.After;
 
 public class ShoutyHooks {
 
+    @Before(value = "@SpecialTest", order = 0)
+    public void beforeSpecialScenario(){
+        System.out.println("this is special");
+    }
+
     @Before(order = 1)
     public void beforeScenario(){
         System.out.println("this is before");

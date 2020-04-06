@@ -14,6 +14,7 @@ Feature: Hear Shout
       | 0, 900         | Sean            |
       | 800, 800       | nothing         |
 
+  @SpecialTest
   Scenario: Multiple shouters
     Given people are located at
       | name  | x    | y   |
@@ -23,7 +24,7 @@ Feature: Hear Shout
     And Oscar shouts
     Then Lucy should not hear Oscar
     Then Lucy should hear Sean
-    
+
   @wip
   Scenario: Shouters should not hear their own shouts
     When Lucy shouts
