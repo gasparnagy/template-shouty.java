@@ -63,4 +63,11 @@ public class ShoutSteps {
     public void lucy_should_hear_nothing() {
         assertEquals(emptyMap(), shouty.getShoutsHeardBy("Lucy"));
     }
+
+    @Then("Lucy should hear {int} shouts from Sean")
+    public void lucyShouldHearShoutsFromSean(int expectedNumberOfShouts) {
+        Map<String, List<String>> shoutsHeard = shouty.getShoutsHeardBy("Lucy");
+        List<String> shoutsByShouter = shoutsHeard.get("Sean");
+        assertEquals(expectedNumberOfShouts, shoutsByShouter.size());
+    }
 }
