@@ -20,9 +20,9 @@ public class LocationSteps {
         );
     }
 
-    @Given("{word} is at {int}, {int}")
-    public void user_is_at(String name, int xCoord, int yCoord) {
-        shouty.setLocation(name, new Coordinate(xCoord, yCoord));
+    @Given("{word} is at {coordinate}")
+    public void user_is_at(String name, Coordinate coordinate) {
+        shouty.setLocation(name, coordinate);
     }
 
     @Given("people are located at")
