@@ -1,9 +1,13 @@
 package shouty;
 
 import io.cucumber.java.PendingException;
+import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+
+import java.util.List;
+import java.util.Map;
 
 import static java.util.Collections.emptyMap;
 import static junit.framework.TestCase.assertFalse;
@@ -17,6 +21,17 @@ public class ShoutSteps {
     @Given("{word} is at {int}, {int}")
     public void user_is_at(String name, int xCoord, int yCoord) {
         shouty.setLocation(name, new Coordinate(xCoord, yCoord));
+    }
+
+    @Given("people are located at")
+    public void peopleAreLocatedAt(DataTable personLocations) {
+
+        for (Map<String, String> personLocation: personLocations.asMaps()){
+            shouty.setLocation(personLocation.get("name"),
+                    new Coordinate(
+                            Integer.parseInt(personLocation.get("x")),
+                            Integer.parseInt(personLocation.get("y"))));
+        }
     }
 
     @When("{word} shouts")
