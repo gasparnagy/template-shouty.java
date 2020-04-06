@@ -1,6 +1,5 @@
 package shouty;
 
-import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
@@ -8,7 +7,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@Component @Scope("cucumber-glue")
+@Component
 public class Shouty {
     private static final int MESSAGE_RANGE = 1000;
     private Map<String, Coordinate> locations = new HashMap<String, Coordinate>();
