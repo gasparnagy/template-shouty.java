@@ -1,6 +1,5 @@
 package shouty;
 
-import io.cucumber.spring.ScenarioScope;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
@@ -8,7 +7,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@Component @ScenarioScope //earlier you had to use: @Scope("cucumber-glue")
+@Component
 public class Shouty {
     private static final int MESSAGE_RANGE = 1000;
     private Map<String, Coordinate> locations = new HashMap<String, Coordinate>();
