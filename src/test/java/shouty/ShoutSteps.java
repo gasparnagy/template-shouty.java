@@ -1,5 +1,6 @@
 package shouty;
 
+import io.cucumber.java.PendingException;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -20,6 +21,18 @@ public class ShoutSteps {
     @When("Sean shouts")
     public void sean_shouts() {
         shouty.shout("Sean", ARBITRARY_MESSAGE);
+    }
+
+    @When("Oscar shouts")
+    public void oscarShouts() {
+        // Write code here that turns the phrase above into concrete actions
+        throw new PendingException();
+    }
+
+    @Then("Lucy should not hear Oscar")
+    public void lucyShouldNotHearOscar() {
+        // Write code here that turns the phrase above into concrete actions
+        throw new PendingException();
     }
 
     @Then("Lucy should hear Sean")
