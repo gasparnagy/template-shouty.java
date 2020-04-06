@@ -19,18 +19,13 @@ public class ShoutSteps {
         shouty.setLocation(name, new Coordinate(xCoord, yCoord));
     }
 
-    @When("Sean shouts")
-    public void sean_shouts() {
-        shouty.shout("Sean", ARBITRARY_MESSAGE);
-    }
-
-    @When("Oscar shouts")
-    public void oscarShouts() {
-        shouty.shout("Oscar", ARBITRARY_MESSAGE);
+    @When("{word} shouts")
+    public void user_shouts(String name) {
+        shouty.shout(name, ARBITRARY_MESSAGE);
     }
 
     @Then("Lucy should not hear Oscar")
-    public void lucyShouldNotHearOscar() {
+    public void lucy_should_not_hear_oscar() {
         assertFalse(shouty.getShoutsHeardBy("Lucy").containsKey("Oscar"));
     }
 
