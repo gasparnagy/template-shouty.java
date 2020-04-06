@@ -6,6 +6,7 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
 import static java.util.Collections.emptyMap;
+import static junit.framework.TestCase.assertFalse;
 import static org.junit.Assert.assertEquals;
 
 
@@ -25,14 +26,12 @@ public class ShoutSteps {
 
     @When("Oscar shouts")
     public void oscarShouts() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new PendingException();
+        shouty.shout("Oscar", ARBITRARY_MESSAGE);
     }
 
     @Then("Lucy should not hear Oscar")
     public void lucyShouldNotHearOscar() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new PendingException();
+        assertFalse(shouty.getShoutsHeardBy("Lucy").containsKey("Oscar"));
     }
 
     @Then("Lucy should hear Sean")
